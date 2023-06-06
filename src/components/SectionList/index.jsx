@@ -5,26 +5,43 @@ import Card from "./Card";
 
 function SectionList() {
     const [ products, setProducts ] = useState([]);
+    const [ isLoading, setIsLoading ] = useState(true);
 
     useEffect(() => {
         async function getProducts(){
-            const response = await api.get("/products");
-            setProducts(response.data);
+            try {
+                const response = await api.get("/products");
+                setProducts(response.data);
+        
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setIsLoading(false)
+            }
         }
         getProducts();
+
     }, [])
 
-    console.log();
+    // if(isLoading) {
+    //     return <div>Loading...</div>
+    // }
 
     return (
-        <ul>
+        <>
             {
-            products.map((product) => <Card key={product.id} product={product}>{product.name}</Card>)
+                isLoading ? (
+                    <div>Loading..</div>
+                ) : (
+                    <ul>
+                        {
+                        products.map((product) => <Card key={product.id} product={product}>{product.name}</Card>)
+                        }
+                    </ul>
+                )
             }
-        </ul>
-    
+        </>
     )
-
 }
 
 export default SectionList;

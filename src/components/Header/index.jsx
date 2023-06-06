@@ -1,19 +1,17 @@
-import logo from "../../assets/logo.png"
 import carrinho from "../../assets/carrinho.png"
+import logo from "../../assets/logo.png"
 import lupa from "../../assets/lupa.png"
 
 function Header() {
     return (
         <header>
-            <div>
-                <img src={logo} alt="Logo da Hamburgueria Kenzie"/>
-                <img src={carrinho} alt="Carrinho de compras"/>
-            </div>
+            <img src={logo} alt="" />
+            <img src={carrinho} alt=""/>
 
-            <div>
-                <input type="search"/>
-                <button><img src={lupa} alt="Lupa para pesquisa"/></button>
-            </div>
+            <form>
+            <input type="search"/>
+            <img src={lupa} alt=""/>
+            </form>
         </header>
     )
 }

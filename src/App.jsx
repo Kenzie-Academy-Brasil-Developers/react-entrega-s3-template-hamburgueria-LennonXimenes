@@ -1,12 +1,13 @@
-import Header from "./components/Header";
-import ProductSection from "./components/ProductSection";
+import Header from "./components/Header"
+import SectionList from "./components/SectionList"
 
 function App() {
+    
     return (
-        <div div className="App" >
+        <div className="App" >
             <Header/>
+            <SectionList/>
 
-            <ProductSection/>
         </div>
     )
 }

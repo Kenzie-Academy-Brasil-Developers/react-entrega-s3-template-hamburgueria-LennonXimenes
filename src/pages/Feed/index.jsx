@@ -9,6 +9,7 @@ function Feed() {
     const [products, setProducts] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [search, setSearch] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
 
 
     useEffect(() => {
@@ -37,7 +38,7 @@ function Feed() {
 
     return (
         <>
-            <Header callback={handleForm}/>
+            <Header callback={handleForm} isOpen={isOpen} setIsOpen={setIsOpen}/>
 
             {
                 isLoading ? (

@@ -4,7 +4,9 @@ import { BiSearchAlt2 } from "react-icons/bi"
 import { FaShoppingCart } from "react-icons/fa"
 import logo from "../../assets/logo.png"
 
-function Header({callback}) {
+import Modal from "../Modal";
+
+function Header({callback, isOpen, setIsOpen}) {
     const [inputSearch, setInputSearch] = useState("");
 
     function handleSbumit(e) {
@@ -17,7 +19,8 @@ function Header({callback}) {
         <header>
             <img src={logo} alt="" />
 
-            <FaShoppingCart size={20} />
+            <button onClick={() => setIsOpen(true)}><FaShoppingCart size={20} /></button>
+            {isOpen ? <Modal setIsOpen={setIsOpen}>Teste</Modal> : null}
 
             <form onSubmit={handleSbumit}>
                 <input

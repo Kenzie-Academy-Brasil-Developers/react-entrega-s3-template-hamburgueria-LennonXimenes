@@ -1,15 +1,13 @@
-import Header from "./components/Header"
-import SectionList from "./components/SectionList"
+import Feed from "./pages/Feed";
 
 function App() {
     
     return (
         <div className="App" >
-            <Header/>
-            <SectionList/>
+            <Feed/>
 
         </div>
     )
 }
 
-export default App
+export default App;

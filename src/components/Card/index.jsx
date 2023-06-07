@@ -1,4 +1,4 @@
-function Card({product}) {
+function Card({product, filteredProducts}) {
     return (
         <li>
             <div>

@@ -1,16 +1,31 @@
-import carrinho from "../../assets/carrinho.png"
-import logo from "../../assets/logo.png"
-import lupa from "../../assets/lupa.png"
+import { useState } from "react"
 
-function Header() {
+import { BiSearchAlt2 } from "react-icons/bi"
+import { FaShoppingCart } from "react-icons/fa"
+import logo from "../../assets/logo.png"
+
+function Header({callback}) {
+    const [inputSearch, setInputSearch] = useState("");
+
+    function handleSbumit(e) {
+        e.preventDefault();
+        callback(inputSearch);
+
+    }
+
     return (
         <header>
             <img src={logo} alt="" />
-            <img src={carrinho} alt=""/>
 
-            <form>
-            <input type="search"/>
-            <img src={lupa} alt=""/>
+            <FaShoppingCart size={20} />
+
+            <form onSubmit={handleSbumit}>
+                <input
+                    type="search"
+                    placeholder="Digite aqui.."
+                    onChange={(e) => setInputSearch(e.target.value)}
+                />
+                <button><BiSearchAlt2 size={20} /></button>
             </form>
         </header>
     )

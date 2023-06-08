@@ -20,7 +20,7 @@ function Header({callback, isOpen, setIsOpen}) {
             <img src={logo} alt="" />
 
             <button onClick={() => setIsOpen(true)}><FaShoppingCart size={20} /></button>
-            {isOpen ? <Modal setIsOpen={setIsOpen}>Teste</Modal> : null}
+            {isOpen ? <Modal setIsOpen={setIsOpen}></Modal> : null}
 
             <form onSubmit={handleSbumit}>
                 <input

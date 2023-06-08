@@ -1,5 +1,11 @@
+import teste from "../../assets/teste.png"
+
 import { useEffect, useRef } from "react";
-import { StyledModal } from "./style";
+
+import { StyledContainer, StyledList, StyledModal, StyledTitle } from "./style";
+import { FaTrash } from "react-icons/fa";
+import X from "../../assets/X.png";
+import { FontParagraph, FontTitle } from "../../styles/typograph";
 
 function Modal({setIsOpen, children}) {
     const modalRef = useRef(null);
@@ -7,13 +13,9 @@ function Modal({setIsOpen, children}) {
     useEffect(() => {
         function handleOutClick(e) {
             if(!modalRef.current?.contains(e.target)) {
-                console.log("Clicou fora")
                 setIsOpen(false);
             }
-
         }
-        
-
         window.addEventListener("mousedown", handleOutClick);
 
         return () => {
@@ -28,7 +30,6 @@ function Modal({setIsOpen, children}) {
             if(e.key === "Escape") {
                 buttonRef.current?.click()
             }
-
         }
         window.addEventListener("keydown", handleKeyDown);
         
@@ -39,9 +40,29 @@ function Modal({setIsOpen, children}) {
 
     return (
         <StyledModal role="dialog">
-            <div ref={modalRef}>
-                <button ref={buttonRef} onClick={() => setIsOpen(false)}>Fechar</button>
-                {children}
+            <div ref={modalRef} className="container">
+                <StyledTitle>
+                    <FontTitle>Carrinho de compras</FontTitle>
+                    <button ref={buttonRef} onClick={() => setIsOpen(false)}> <img src={X} alt="Letra X"/></button>
+                    {children}
+                </StyledTitle>
+                <StyledList>
+                    <li>
+                        <div>
+                            <img src={teste} alt="" />
+                            <FontTitle>X Tapa Certo</FontTitle>
+                        </div>
+                        <button><FaTrash size={25} color="#BDBDBD"/></button>
+                    </li>
+                </StyledList>
+                <StyledContainer>
+                    <div className="line"></div>
+                    <div>
+                        <FontParagraph>Total</FontParagraph>
+                        <FontParagraph color="grey3">R$ <span>XXXX</span></FontParagraph>
+                    </div>
+                    <button>Remover todos</button>
+                </StyledContainer>
             </div>
         </StyledModal>
     )

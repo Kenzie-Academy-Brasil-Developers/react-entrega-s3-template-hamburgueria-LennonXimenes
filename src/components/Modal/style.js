@@ -10,29 +10,135 @@ export const StyledModal = styled.dialog`
     inset: 0;
     height: 100vh;
     width: 100%;
-    background: rgba(0,0,0,.3);
 
-    > div:nth-child(1) {
-        position: relative;
-        width: 100%;
-        max-width: 400px;
-        padding: 2rem;
-        background-color: #FFFFFF;
-    }
+    padding: 10px;
     
-    > div > button {
-        position: absolute;
-        top: 0;
-        left: 0;
+    background: rgba(0,0,0,.3);
+    
+    > .container {
+        position: relative;
+        height: 355px;
+        width: 100%;
+        min-width: 260px;
+        max-width: 500px;
+        border-radius: 5px;
     }
+`
+
+export const StyledTitle = styled.div`
+    height: 55px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 10px 20px 10px 20px;
+        
+    background-color: #27AE60;
+    border-radius: 5px 5px 0px 0px;
+
+    color: #FFFFFF;
+
+    h2 {
+        
+    }
+
+    button {
+        background-color: transparent;
+        border: none;
+    }
+`
+
+export const StyledList = styled.div`
+    width: 100%;
+    height: 200px;
+    max-height: 200px;
+    
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--color--grey-1);
+    list-style: none;
+    
+    padding: 20px;
+
+    overflow-y: auto;
+
+    li {
+        height: 80px;
+        width: 100%;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        margin-bottom: 1rem;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+    }
+
+    img {
+        height: 80px;
+        width: 80px;
+    }
+
+    h3 {
+        margin-left: 1rem;
+    }
+`
+
+export const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    background-color: var(--color--grey-1);
+    
+    .line {
+        padding: 10px;
+        border-top: 1px solid var(--color--grey-2);
+    }
+
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        width: 100%;
+        padding: 20px;
+        background-color: var(--color--grey-2);
+
+        margin-top: 20px;
+
+        font-size: 16px;
+        color: var(--color--grey-3);
+
+        border-radius: 8px;
+    }
+
+    button:hover {
+        background-color: var(--color--grey-3);
+        color: var(--color--grey-1);
+    }
+
+`
+
+export const StyledList3 = styled.div`
+
 `
 
 
 
 /*
-modal OverLay = dialog
-modal box = 2² div 
-close btn = btn fechar
+
+width: 375px
+width: 500px
+clamp(375px, 100%, 500px);
 
 
 */

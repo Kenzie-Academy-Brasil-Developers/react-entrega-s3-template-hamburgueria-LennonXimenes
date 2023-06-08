@@ -1,3 +1,5 @@
+import { FaTrash } from "react-icons/fa";
+
 import styled from "styled-components";
 
 export const StyledModal = styled.dialog`
@@ -16,6 +18,8 @@ export const StyledModal = styled.dialog`
     background: rgba(0,0,0,.3);
     
     > .container {
+        display: flex;
+        flex-direction: column;
         position: relative;
         height: 355px;
         width: 100%;
@@ -51,8 +55,8 @@ export const StyledTitle = styled.div`
 
 export const StyledList = styled.div`
     width: 100%;
-    height: 200px;
-    max-height: 200px;
+    height: 190px;
+    max-height: 190px;
     
     display: flex;
     flex-direction: column;
@@ -91,6 +95,14 @@ export const StyledList = styled.div`
     }
 `
 
+export const StyledFaTrash = styled(FaTrash)`
+    color: #BDBDBD;
+
+    &:hover{
+        color: var(--color--grey-3);
+    }
+`
+
 export const StyledContainer = styled.div`
     display: flex;
     flex-direction: column;
@@ -125,20 +137,4 @@ export const StyledContainer = styled.div`
         background-color: var(--color--grey-3);
         color: var(--color--grey-1);
     }
-
 `
-
-export const StyledList3 = styled.div`
-
-`
-
-
-
-/*
-
-width: 375px
-width: 500px
-clamp(375px, 100%, 500px);
-
-
-*/

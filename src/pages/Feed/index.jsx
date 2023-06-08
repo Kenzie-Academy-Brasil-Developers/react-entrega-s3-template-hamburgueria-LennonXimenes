@@ -4,6 +4,7 @@ import { api } from "../../services/api";
 
 import Card from "../../components/Card";
 import Header from "../../components/Header";
+import { StyledUlList } from "../../components/Card/style";
 
 function Feed() {
     const [products, setProducts] = useState([]);
@@ -44,11 +45,11 @@ function Feed() {
                 isLoading ? (
                     <div>Loading...</div>
                 ) : (
-                    <ul>
+                    <StyledUlList>
                         {
                             products.map((product) => <Card key={product.id} product={product}>{product.name}</Card>)
                         }
-                    </ul>
+                    </StyledUlList>
                 )
             }
 

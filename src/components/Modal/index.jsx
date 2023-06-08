@@ -2,10 +2,10 @@ import teste from "../../assets/teste.png"
 
 import { useEffect, useRef } from "react";
 
-import { StyledContainer, StyledList, StyledModal, StyledTitle } from "./style";
+import { StyledContainer, StyledFaTrash, StyledList, StyledModal, StyledTitle } from "./style";
 import { FaTrash } from "react-icons/fa";
 import X from "../../assets/X.png";
-import { FontParagraph, FontTitle } from "../../styles/typograph";
+import { FontParagraph, FontSpan, FontTitle } from "../../styles/typograph";
 
 function Modal({setIsOpen, children}) {
     const modalRef = useRef(null);
@@ -43,7 +43,7 @@ function Modal({setIsOpen, children}) {
             <div ref={modalRef} className="container">
                 <StyledTitle>
                     <FontTitle>Carrinho de compras</FontTitle>
-                    <button ref={buttonRef} onClick={() => setIsOpen(false)}> <img src={X} alt="Letra X"/></button>
+                    <button ref={buttonRef} onClick={() => setIsOpen(false)}><img src={X} alt="Letra X"/></button>
                     {children}
                 </StyledTitle>
                 <StyledList>
@@ -52,14 +52,14 @@ function Modal({setIsOpen, children}) {
                             <img src={teste} alt="" />
                             <FontTitle>X Tapa Certo</FontTitle>
                         </div>
-                        <button><FaTrash size={25} color="#BDBDBD"/></button>
+                        <button><StyledFaTrash size={25}/></button>
                     </li>
                 </StyledList>
                 <StyledContainer>
                     <div className="line"></div>
                     <div>
                         <FontParagraph>Total</FontParagraph>
-                        <FontParagraph color="grey3">R$ <span>XXXX</span></FontParagraph>
+                        <FontParagraph><FontSpan>R$ XXXX</FontSpan></FontParagraph>
                     </div>
                     <button>Remover todos</button>
                 </StyledContainer>

@@ -63,6 +63,10 @@ export const StyledUlList = styled.ul`
         background-color: var(--color-primary);
     }
 
+    @media (min-width: 768px) {
+        overflow: hidden;
+    }
+
     @media (min-width: 1024px) {
         display: flex;
         justify-content: center;

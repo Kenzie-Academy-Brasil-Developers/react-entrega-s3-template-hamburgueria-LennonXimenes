@@ -13,11 +13,9 @@ function Card({product, setProducts, cart, setCart}) {
         } else {
             alert("Você já adicionou este produto")
         }
-
     }
     
 
-    
     return (
         <li>
             <div>

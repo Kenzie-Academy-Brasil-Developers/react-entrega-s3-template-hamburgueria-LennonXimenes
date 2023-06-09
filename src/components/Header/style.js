@@ -97,7 +97,23 @@ export const StyledHeader = styled.header`
 
     @media (min-width: 1024px) {
         padding: 10px 115px 10px 115px;
-        
     }
 
+`
+
+export const CartCount = styled.div`
+    position: relative;
+    width: fit-content;
+
+    &::after {       
+        content: '${({count}) => count}';
+        background-color: var(--color-primary);
+        color: #FFFFFF;
+        position: absolute;
+        top: -10px;
+        right: -5px;
+        border-radius: 5px;
+        font-size: 12px;
+        padding: 2px;
+    }
 `

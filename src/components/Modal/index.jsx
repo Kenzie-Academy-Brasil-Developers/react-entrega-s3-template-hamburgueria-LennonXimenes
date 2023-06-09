@@ -6,8 +6,9 @@ import { StyledContainer, StyledFaTrash, StyledList, StyledModal, StyledTitle } 
 import { FaTrash } from "react-icons/fa";
 import X from "../../assets/X.png";
 import { FontParagraph, FontSpan, FontTitle } from "../../styles/typograph";
+import CardModal from "./CardModal";
 
-function Modal({setIsOpen, children}) {
+function Modal({setIsOpen, products, setProducts, setCart, cart}) {
     const modalRef = useRef(null);
 
     useEffect(() => {
@@ -38,22 +39,27 @@ function Modal({setIsOpen, children}) {
         }
     }, [])
 
+    function removeProductFromList(productId) {
+        setCart((cart) => cart.filter(product => product.id !== productId))
+    }
+
+
     return (
         <StyledModal role="dialog">
             <div ref={modalRef} className="container">
                 <StyledTitle>
                     <FontTitle>Carrinho de compras</FontTitle>
                     <button ref={buttonRef} onClick={() => setIsOpen(false)}><img src={X} alt="Letra X"/></button>
-                    {children}
                 </StyledTitle>
                 <StyledList>
-                    <li>
-                        <div>
-                            <img src={teste} alt="" />
-                            <FontTitle>X Tapa Certo</FontTitle>
-                        </div>
-                        <button><StyledFaTrash size={25}/></button>
-                    </li>
+                    {cart.map((product) => 
+                        <CardModal
+                            removeProductFromList={removeProductFromList}
+                            key={product.id} 
+                            product={product}
+                            cart={cart}
+                            setCart={setCart}>{product.name}
+                        </CardModal>)}
                 </StyledList>
                 <StyledContainer>
                     <div className="line"></div>

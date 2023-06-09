@@ -5,23 +5,29 @@ import { FaShoppingCart } from "react-icons/fa"
 import logo from "../../assets/logo.png"
 
 import Modal from "../Modal";
-import { StyledHeader } from "./style";
+import { CartCount, StyledHeader } from "./style";
 
-function Header({callback, isOpen, setIsOpen}) {
+function Header({callback, isOpen, setIsOpen, products, setProducts, cart, setCart}) {
     const [inputSearch, setInputSearch] = useState("");
 
     function handleSbumit(e) {
         e.preventDefault();
         callback(inputSearch);
-
     }
+
+
+
+    let count = 0;
 
     return (
         <StyledHeader>
                 <div className="container">
                     <img src={logo} alt=""/>
-                    <button onClick={() => setIsOpen(true)}><FaShoppingCart size={25} color="#BDBDBD"/></button>
-                    {isOpen ? <Modal setIsOpen={setIsOpen}></Modal> : null}
+                    <button
+                        onClick={() => setIsOpen(true)}>
+                        <CartCount count={count}><FaShoppingCart size={25} color="#BDBDBD"/></CartCount>
+                    </button>
+                    {isOpen ? <Modal setIsOpen={setIsOpen} cart={cart} setCart={setCart}></Modal> : null}
                 </div>
 
                 <form onSubmit={handleSbumit}>

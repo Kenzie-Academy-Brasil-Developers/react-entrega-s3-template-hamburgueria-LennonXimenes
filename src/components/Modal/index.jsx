@@ -43,6 +43,18 @@ function Modal({setIsOpen, products, setProducts, setCart, cart}) {
         setCart((cart) => cart.filter(product => product.id !== productId))
     }
 
+    const total = cart.reduce((accTotal, product) => {
+        return accTotal + product.price
+    }, 0)
+
+    function removeAll() {
+        setCart([])
+    }
+
+    console.log(products)
+    console.log(cart)
+    console.log(total)
+
 
     return (
         <StyledModal role="dialog">
@@ -65,9 +77,9 @@ function Modal({setIsOpen, products, setProducts, setCart, cart}) {
                     <div className="line"></div>
                     <div>
                         <FontParagraph>Total</FontParagraph>
-                        <FontParagraph><FontSpan>R$ XXXX</FontSpan></FontParagraph>
+                        <FontParagraph><FontSpan>R$ {total.toFixed(2).replace(".", ",")}</FontSpan></FontParagraph>
                     </div>
-                    <button>Remover todos</button>
+                    <button onClick={removeAll}>Remover todos</button>
                 </StyledContainer>
             </div>
         </StyledModal>

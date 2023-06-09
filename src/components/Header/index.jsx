@@ -16,8 +16,7 @@ function Header({callback, isOpen, setIsOpen, products, setProducts, cart, setCa
     }
 
 
-
-    let count = 0;
+    let count = cart.length;
 
     return (
         <StyledHeader>

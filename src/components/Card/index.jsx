@@ -4,13 +4,18 @@ function Card({product, setProducts, cart, setCart}) {
 
     function addToCart(product) {
         setCart([...cart, product])
-
     }
 
     function handleAdd(e){
         e.preventDefault()
-        addToCart(product)
+        if(!cart.includes(product)){
+            addToCart(product)
+        } else {
+            alert("Você já adicionou este produto")
+        }
+
     }
+    
 
     
     return (

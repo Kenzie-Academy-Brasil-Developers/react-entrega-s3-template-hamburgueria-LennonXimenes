@@ -3,11 +3,11 @@ import { FontParagraph, FontSmall, FontTitle } from "../../styles/typograph";
 function Card({product, setProducts, cart, setCart}) {
 
     function addToCart(product) {
-        setCart([...cart, product])
+        setCart([...cart, product]);
     }
 
     function handleAdd(e){
-        e.preventDefault()
+        e.preventDefault();
         if(!cart.includes(product)){
             addToCart(product)
         } else {

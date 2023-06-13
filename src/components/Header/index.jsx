@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useState } from "react";
 
-import { BiSearchAlt2 } from "react-icons/bi"
-import { FaShoppingCart } from "react-icons/fa"
-import logo from "../../assets/logo.png"
+import { BiSearchAlt2 } from "react-icons/bi";
+import { FaShoppingCart } from "react-icons/fa";
+import logo from "../../assets/logo.png";
 
 import Modal from "../Modal";
 import { CartCount, StyledHeader } from "./style";

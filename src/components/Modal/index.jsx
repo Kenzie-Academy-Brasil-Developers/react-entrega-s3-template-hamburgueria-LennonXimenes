@@ -29,7 +29,7 @@ function Modal({setIsOpen, products, setProducts, setCart, cart}) {
     useEffect(() => {
         function handleKeyDown(e) {
             if(e.key === "Escape") {
-                buttonRef.current?.click()
+                buttonRef.current?.click();
             }
         }
         window.addEventListener("keydown", handleKeyDown);
@@ -37,24 +37,19 @@ function Modal({setIsOpen, products, setProducts, setCart, cart}) {
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         }
-    }, [])
+    }, []);
 
     function removeProductFromList(productId) {
-        setCart((cart) => cart.filter(product => product.id !== productId))
+        setCart((cart) => cart.filter(product => product.id !== productId));
     }
 
     const total = cart.reduce((accTotal, product) => {
         return accTotal + product.price
-    }, 0)
+    }, 0);
 
     function removeAll() {
-        setCart([])
+        setCart([]);
     }
-
-    console.log(products)
-    console.log(cart)
-    console.log(total)
-
 
     return (
         <StyledModal role="dialog">

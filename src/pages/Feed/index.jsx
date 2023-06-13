@@ -31,7 +31,7 @@ function Feed() {
         }
         getProducts();
 
-    }, [search])
+    }, [search]);
 
     function handleForm(inputSearch) {
         setSearch(inputSearch);
